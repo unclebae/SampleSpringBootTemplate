@@ -1,0 +1,51 @@
+INFO  2020-01-07 13:34:36.181 [main StartupInfoLogger.java:55] logStarting - Starting DemoApplication on C02VH1T8HTD5 with PID 21883 (/Users/kidobae/Documents/60.SAMPLE_JAVA/demo/target/classes started by kidobae in /Users/kidobae/Documents/60.SAMPLE_JAVA/demo)
+INFO  2020-01-07 13:34:36.183 [main SpringApplication.java:651] logStartupProfileInfo - No active profile set, falling back to default profiles: default
+INFO  2020-01-07 13:34:37.183 [main TomcatWebServer.java:92] initialize - Tomcat initialized with port(s): 8080 (http)
+INFO  2020-01-07 13:34:37.199 [main DirectJDKLog.java:173] log - Initializing ProtocolHandler ["http-nio-8080"]
+INFO  2020-01-07 13:34:37.200 [main DirectJDKLog.java:173] log - Starting service [Tomcat]
+INFO  2020-01-07 13:34:37.200 [main DirectJDKLog.java:173] log - Starting Servlet engine: [Apache Tomcat/9.0.29]
+INFO  2020-01-07 13:34:37.259 [main DirectJDKLog.java:173] log - Initializing Spring embedded WebApplicationContext
+INFO  2020-01-07 13:34:37.260 [main ServletWebServerApplicationContext.java:284] prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1026 ms
+INFO  2020-01-07 13:34:37.414 [main ExecutorConfigurationSupport.java:171] initialize - Initializing ExecutorService 'applicationTaskExecutor'
+INFO  2020-01-07 13:34:37.573 [main DirectJDKLog.java:173] log - Starting ProtocolHandler ["http-nio-8080"]
+INFO  2020-01-07 13:34:37.598 [main TomcatWebServer.java:204] start - Tomcat started on port(s): 8080 (http) with context path ''
+INFO  2020-01-07 13:34:37.607 [main StartupInfoLogger.java:61] logStarted - Started DemoApplication in 2.191 seconds (JVM running for 2.896)
+INFO  2020-01-07 13:34:37.609 [main DemoApplication.java:16] main - End Logger:----------------- :::
+INFO  2020-01-07 13:35:59.727 [SpringContextShutdownHook ExecutorConfigurationSupport.java:208] shutdown - Shutting down ExecutorService 'applicationTaskExecutor'
+INFO  2020-01-07 13:36:02.539 [main StartupInfoLogger.java:55] logStarting - Starting DemoApplication on C02VH1T8HTD5 with PID 22635 (/Users/kidobae/Documents/60.SAMPLE_JAVA/demo/target/classes started by kidobae in /Users/kidobae/Documents/60.SAMPLE_JAVA/demo)
+INFO  2020-01-07 13:36:02.541 [main SpringApplication.java:651] logStartupProfileInfo - No active profile set, falling back to default profiles: default
+INFO  2020-01-07 13:36:03.641 [main TomcatWebServer.java:92] initialize - Tomcat initialized with port(s): 8080 (http)
+INFO  2020-01-07 13:36:03.651 [main DirectJDKLog.java:173] log - Initializing ProtocolHandler ["http-nio-8080"]
+INFO  2020-01-07 13:36:03.652 [main DirectJDKLog.java:173] log - Starting service [Tomcat]
+INFO  2020-01-07 13:36:03.652 [main DirectJDKLog.java:173] log - Starting Servlet engine: [Apache Tomcat/9.0.29]
+INFO  2020-01-07 13:36:03.718 [main DirectJDKLog.java:173] log - Initializing Spring embedded WebApplicationContext
+INFO  2020-01-07 13:36:03.718 [main ServletWebServerApplicationContext.java:284] prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1139 ms
+INFO  2020-01-07 13:36:03.857 [main ExecutorConfigurationSupport.java:171] initialize - Initializing ExecutorService 'applicationTaskExecutor'
+INFO  2020-01-07 13:36:03.975 [main DirectJDKLog.java:173] log - Starting ProtocolHandler ["http-nio-8080"]
+INFO  2020-01-07 13:36:04.003 [main TomcatWebServer.java:204] start - Tomcat started on port(s): 8080 (http) with context path ''
+INFO  2020-01-07 13:36:04.008 [main StartupInfoLogger.java:61] logStarted - Started DemoApplication in 1.978 seconds (JVM running for 2.751)
+INFO  2020-01-07 13:36:04.009 [main DemoApplication.java:16] main - End Logger:----------------- :::
+INFO  2020-01-07 13:43:40.977 [SpringContextShutdownHook ExecutorConfigurationSupport.java:208] shutdown - Shutting down ExecutorService 'applicationTaskExecutor'
+INFO  2020-01-07 13:43:44.910 [main TomcatWebServer.java:92] initialize - Tomcat initialized with port(s): 8080 (http)
+INFO  2020-01-07 13:43:44.921 [main DirectJDKLog.java:173] log - Initializing ProtocolHandler ["http-nio-8080"]
+INFO  2020-01-07 13:43:44.922 [main DirectJDKLog.java:173] log - Starting service [Tomcat]
+INFO  2020-01-07 13:43:44.922 [main DirectJDKLog.java:173] log - Starting Servlet engine: [Apache Tomcat/9.0.29]
+INFO  2020-01-07 13:43:44.998 [main DirectJDKLog.java:173] log - Initializing Spring embedded WebApplicationContext
+INFO  2020-01-07 13:43:44.999 [main ServletWebServerApplicationContext.java:284] prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1155 ms
+INFO  2020-01-07 13:43:45.153 [main ExecutorConfigurationSupport.java:171] initialize - Initializing ExecutorService 'applicationTaskExecutor'
+INFO  2020-01-07 13:43:45.274 [main DirectJDKLog.java:173] log - Starting ProtocolHandler ["http-nio-8080"]
+INFO  2020-01-07 13:43:45.292 [main TomcatWebServer.java:204] start - Tomcat started on port(s): 8080 (http) with context path ''
+INFO  2020-01-07 13:43:57.218 [SpringContextShutdownHook ExecutorConfigurationSupport.java:208] shutdown - Shutting down ExecutorService 'applicationTaskExecutor'
+INFO  2020-01-07 13:44:00.909 [main StartupInfoLogger.java:55] logStarting - Starting DemoApplication on C02VH1T8HTD5 with PID 25829 (/Users/kidobae/Documents/60.SAMPLE_JAVA/demo/target/classes started by kidobae in /Users/kidobae/Documents/60.SAMPLE_JAVA/demo)
+INFO  2020-01-07 13:44:00.919 [main SpringApplication.java:651] logStartupProfileInfo - No active profile set, falling back to default profiles: default
+INFO  2020-01-07 13:44:01.956 [main TomcatWebServer.java:92] initialize - Tomcat initialized with port(s): 8080 (http)
+INFO  2020-01-07 13:44:01.963 [main DirectJDKLog.java:173] log - Initializing ProtocolHandler ["http-nio-8080"]
+INFO  2020-01-07 13:44:01.964 [main DirectJDKLog.java:173] log - Starting service [Tomcat]
+INFO  2020-01-07 13:44:01.964 [main DirectJDKLog.java:173] log - Starting Servlet engine: [Apache Tomcat/9.0.29]
+INFO  2020-01-07 13:44:02.031 [main DirectJDKLog.java:173] log - Initializing Spring embedded WebApplicationContext
+INFO  2020-01-07 13:44:02.031 [main ServletWebServerApplicationContext.java:284] prepareWebApplicationContext - Root WebApplicationContext: initialization completed in 1026 ms
+INFO  2020-01-07 13:44:02.158 [main ExecutorConfigurationSupport.java:171] initialize - Initializing ExecutorService 'applicationTaskExecutor'
+INFO  2020-01-07 13:44:02.267 [main DirectJDKLog.java:173] log - Starting ProtocolHandler ["http-nio-8080"]
+INFO  2020-01-07 13:44:02.287 [main TomcatWebServer.java:204] start - Tomcat started on port(s): 8080 (http) with context path ''
+INFO  2020-01-07 13:44:02.292 [main StartupInfoLogger.java:61] logStarted - Started DemoApplication in 2.228 seconds (JVM running for 3.069)
+INFO  2020-01-07 13:44:02.294 [main DemoApplication.java:16] main - End Logger:----------------- :::
