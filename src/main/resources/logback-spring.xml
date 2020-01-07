@@ -19,7 +19,6 @@
             <pattern>%-5level %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread %F:%L] %method - %msg%n</pattern>
         </encoder>
 
-        <!-- Rolling 정책 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>${LOG_DIR}/app_%d{yyyy-MM-dd}_%i.log.gz</fileNamePattern>
 
@@ -27,21 +26,16 @@
                 <maxFileSize>10MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
 
-            <!-- 일자별 로그파일 최대 보관주기(일단위)
-            만약 해당 설정일 이상된 파일은 자동으로 제거-->
             <maxHistory>60</maxHistory>
 
         </rollingPolicy>
 
     </appender>
 
+    <logger name="com.template.coe.demo" level="INFO"/>
 
-    <logger name="애플리케이션패키지명(ex com.web.spring)" level="INFO"/>
-
-    <root level="INFO"> <!-- DEBUG -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
         <appender-ref ref="ROLLING_FILE"/>
     </root>
 </configuration>
-
-
-        출처: https://coding-start.tistory.com/186 [코딩스타트]
