@@ -9,6 +9,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -26,6 +27,8 @@ public class FileUploadController {
 
     @Autowired
     private FileUploadService fileUploadService;
+
+
 
     @PostMapping("/uploadFile")
     public FileInfo uploadFile(@RequestParam("file") MultipartFile file) {
