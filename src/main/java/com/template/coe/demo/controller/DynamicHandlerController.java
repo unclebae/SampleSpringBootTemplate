@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 @RestController
@@ -31,13 +32,13 @@ public class DynamicHandlerController {
         try {
             System.out.println("Handler: " + handler);
             RequestMappingInfo requestMappingInfo = RequestMappingInfo
-                    .paths(handler.getKey() + handler.getKey())
+                    .paths(handler.getKey() + handler.getUri())
                     .methods(handler.getMethod())
                     .produces(MediaType.APPLICATION_JSON_VALUE)
                     .build();
 
             requestMappingHandlerMapping.registerMapping(requestMappingInfo, this,
-                    DynamicHandlerController.class.getDeclaredMethod("handlerResponse"));
+                    DynamicHandlerController.class.getDeclaredMethod("handlerResponse", DynamicHandler.class));
 
             System.out.println(requestMappingHandlerMapping.getHandlerMethods());
             return handler.getKey() + handler.getUri();
@@ -50,10 +51,10 @@ public class DynamicHandlerController {
         return "Error";
     }
 
-    public ResponseEntity<String> handlerResponse() {
-//        System.out.println("Response: " + handler);
-//        return ResponseEntity.ok(handler.getOutput());
-        return ResponseEntity.ok("OK");
+    public ResponseEntity<Map<String, Object>> handlerResponse(DynamicHandler handler) {
+        System.out.println("Response: " + handler);
+        return ResponseEntity.ok(handler.getOutput());
+//        return ResponseEntity.ok("OK");
     }
 
 }
