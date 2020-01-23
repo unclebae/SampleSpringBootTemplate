@@ -1,6 +1,7 @@
 package com.template.coe.demo.controller;
 
 import com.template.coe.demo.model.DynamicHandler;
+import com.template.coe.demo.model.HandlerProcessResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -8,7 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,8 +24,8 @@ public class DynamicHandlerController {
     private RequestMappingHandlerMapping requestMappingHandlerMapping;
 
     @PostMapping("/api/add-handler")
-    public ResponseEntity<DynamicHandler> addHandler(@RequestBody DynamicHandler handler) throws Exception {
-        return ResponseEntity.ok(registHandler(handler));
+    public ResponseEntity<HandlerProcessResult> addHandler(@RequestBody DynamicHandler handler, HttpServletRequest request) throws Exception {
+        return registHandler(handler, request);
     }
 
     @GetMapping("/api/handlers")
@@ -35,7 +38,8 @@ public class DynamicHandlerController {
         return ResponseEntity.ok(handlerMaps.get(key));
     }
 
-    public DynamicHandler registHandler(DynamicHandler handler) {
+    public ResponseEntity<HandlerProcessResult> registHandler(DynamicHandler handler, HttpServletRequest request) {
+
         try {
             System.out.println("Handler: " + handler);
             RequestMappingInfo requestMappingInfo = RequestMappingInfo
@@ -51,7 +55,13 @@ public class DynamicHandlerController {
 
             DynamicHandler dynamicHandler = handlerMaps.putIfAbsent(handler.getKey(), handler);
 
-            return dynamicHandler;
+            if (dynamicHandler == null) {
+                return ResponseEntity.ok(new HandlerProcessResult("정상적으로 등록 되었습니다. "));
+            }
+            else {
+                return ResponseEntity.unprocessableEntity().body(new HandlerProcessResult(handler.getKey() + " 는 이미 등록된 API 입니다. "));
+            }
+
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (SecurityException e) {
