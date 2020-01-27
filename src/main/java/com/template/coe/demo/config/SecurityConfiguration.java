@@ -25,10 +25,30 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     }
 
+
     @Bean
     public PasswordEncoder getPasswordEncoder() {
         return NoOpPasswordEncoder.getInstance();
     }
 
 
+    /**
+     * / : All (unauthenticated)
+     * /user : USER and Admin role
+     * /admin : Admin role
+     *
+     *
+     * http://localhost:8080/login?error
+     */
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers("/admin").hasRole("ADMIN")
+//                .antMatchers("/user").hasRole("USER")
+                .antMatchers("/user").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/", "static/css", "static/js").permitAll()
+                .and().formLogin();
+
+    }
 }
