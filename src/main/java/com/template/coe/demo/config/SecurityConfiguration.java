@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -18,13 +19,24 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Autowired
     DataSource dataSource;
 
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        // Using query user schema
+//        auth.jdbcAuthentication()
+//                .dataSource(dataSource)
+//        .usersByUsernameQuery("select username, password, enabled from users where username = ?")
+//        .authoritiesByUsernameQuery("select username, authority from authorities where username = ?");
+//
+//    }
+//
+
+    @Autowired
+    UserDetailsService userDetailservice;
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         // Using query user schema
-        auth.jdbcAuthentication()
-                .dataSource(dataSource)
-        .usersByUsernameQuery("select username, password, enabled from users where username = ?")
-        .authoritiesByUsernameQuery("select username, authority from authorities where username = ?");
+        auth.userDetailsService(userDetailservice);
 
     }
 
