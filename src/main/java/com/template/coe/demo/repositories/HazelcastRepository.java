@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class HazelcastRepository {
 
-    @Cacheable("cache-test")
+//    @Cacheable("cache-test")
     public String getCache(String id) {
         System.out.println("Insert Id: " + id);
         return "Return Echo: " + id;
