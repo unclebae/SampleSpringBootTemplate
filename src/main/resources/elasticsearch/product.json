@@ -1,0 +1,11 @@
+{"index": {"_id": "1"}}
+{"id": "1", "name": "Apples", "catId": 1}
+{"index": {"_id": "2"}}
+{"id": "2", "name": "Oranges", "catId": 1}
+{"index": {"_id": "3"}}
+{"id": "3", "name": "Bababas", "catId": 1}
+{"index": {"_id": "4"}}
+{"id": "4", "name": "Carrot", "catId": 2}
+
+curl -H 'Content-Type: application/json' -XPOST localhost:9200 -d @/Users/kidobae/Documents/60.SAMPLE_JAVA/demo/src/main/resources/elasticsearch/product.json
+curl -XPOST http://localhost:9200/Proudcts -H "Content-Type: application/json" -d @/Users/kidobae/Documents/60.SAMPLE_JAVA/demo/src/main/resources/elasticsearch/product.json
