@@ -4,5 +4,8 @@
 {"_id": "4", "name":"Carrot", "catId":2}
 
 // 실행방법
+//brew services start mongodb-community@4.2
+//brew services stop mongodb-community@4.2
+// Data Import 하기.
 // mongoimport --db masterdb --collection product --drop --file /Users/kidobae/Documents/60.SAMPLE_JAVA/demo/src/main/resources/mongo/product.json
 
