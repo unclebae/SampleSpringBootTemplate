@@ -1,25 +1,22 @@
 package com.template.coe.demo.domain;
 
 import lombok.*;
-
-import javax.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Entity
+@Document
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
     private int catId;
 
 }

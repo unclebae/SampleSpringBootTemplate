@@ -3,11 +3,11 @@ package com.template.coe.demo.repositories;
 import com.template.coe.demo.domain.Product;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
-public interface ProductRepository extends JpaRepository<Product, Integer> {
+public interface ProductRepository extends MongoRepository<Product, Integer> {
 
     @Cacheable("productByCategoryCache")
     List<Product> findByCatId(int catId);

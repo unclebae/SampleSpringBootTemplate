@@ -2,9 +2,9 @@ package com.template.coe.demo.resources;
 
 import com.template.coe.demo.domain.Product;
 import com.template.coe.demo.exception.BadRequestException;
+import com.template.coe.demo.message.ProductMsgProducer;
 import com.template.coe.demo.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +20,9 @@ public class ProductResource {
     @Autowired
     ProductRepository productRepository;
 
+    @Autowired
+    ProductMsgProducer productMsgProducer;
+
     @GetMapping("/api/products")
     ResponseEntity<List<Product>> getProducts() {
         return new ResponseEntity<>(productRepository.findAll(), HttpStatus.OK);
@@ -27,7 +30,7 @@ public class ProductResource {
 
     @GetMapping("/api/products/{id}")
     ResponseEntity<Product> getProductById(@PathVariable("id") int id) {
-        return new ResponseEntity<>(productRepository.getOne(id), HttpStatus.OK);
+        return new ResponseEntity<>(productRepository.findById(id).orElse(null), HttpStatus.OK);
     }
 
     @PostMapping("/api/products")
@@ -36,19 +39,21 @@ public class ProductResource {
         return new ResponseEntity<>(saveedProduct, HttpStatus.OK);
     }
 
-    @PostMapping("/api/products/{id}")
+    @PutMapping("/api/products/{id}")
     ResponseEntity<Product> updateProduct(@PathVariable("id") int id, @RequestBody Product product) {
-        Product existingProdct = productRepository.getOne(id);
+        Optional<Product> existingProdct = productRepository.findById(id);
 
-        try {
-            existingProdct.setCatId(product.getCatId());
-            existingProdct.setName(product.getName());
-            Product savedProduct = productRepository.save(existingProdct);
-
-            return new ResponseEntity<>(savedProduct, HttpStatus.OK);
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
+        if (existingProdct.isEmpty()) {
+            String errMsg = "Product Not found with code " + id;
+            throw new BadRequestException(BadRequestException.ID_NOT_FOUND, errMsg);
         }
+        Product selectedProduct = existingProdct.get();
+
+        selectedProduct.setCatId(product.getCatId());
+        selectedProduct.setName(product.getName());
+        Product savedProduct = productRepository.save(selectedProduct);
+
+        return new ResponseEntity<>(savedProduct, HttpStatus.OK);
     }
 
     @DeleteMapping("/api/products/{id}")
@@ -61,6 +66,7 @@ public class ProductResource {
             throw new BadRequestException(BadRequestException.ID_NOT_FOUND, errMsg);
         }
         productRepository.delete(product.get());
+        productMsgProducer.sendUpdate(product.get(), true);
 
         return product.get();
     }
