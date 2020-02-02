@@ -16,4 +16,6 @@ public class TestResource {
     public String getCache(@PathVariable("id") String id) {
         return hazelcastRepository.getCache(id);
     }
+
+
 }
