@@ -46,10 +46,10 @@ class groovy extends Specification {
         name1.length() > 0
 
         when: "특정 액션이 발생했을때 해당 값을 반환한다."
-        name1.length() >>> 100
+        def len = name1.length()
 
         then:
-        name1.length() == 100
+        name1.length() == 4
     }
 
 //    Exception 처리
