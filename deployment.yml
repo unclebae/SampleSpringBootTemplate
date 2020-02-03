@@ -1,0 +1,37 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: demo-api
+spec:
+  selector:
+    app: demo-api
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-api
+  labels:
+    app: demo-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: demo-api
+  template:
+    metadata:
+      labels:
+        app: demo-api
+    spec:
+      containers:
+        - name: demo-api
+          image: unclebae/demo-api:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
