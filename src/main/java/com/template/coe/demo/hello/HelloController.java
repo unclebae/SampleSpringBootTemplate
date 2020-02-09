@@ -18,4 +18,9 @@ public class HelloController {
         return resultValue;
     }
 
+    @GetMapping(value = "/welcome")
+    public String welcome() {
+        return "Welcome Spring Test";
+    }
+
 }
