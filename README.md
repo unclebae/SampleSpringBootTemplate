@@ -299,6 +299,17 @@ $curl -i http://localhost:8890/api/greeting
 
 ```
 
+## Docker 정지하기. 
+
+```$xslt
+docker stop 917ae890fb54 07d8482bd39d 37fc052368b1
+
+917ae890fb54
+07d8482bd39d
+37fc052368b1
+```
+
+이렇게 하면 운영중이던 Docker 인스턴스가 정지 됩니다. 
 
 ## 결론. 
 
